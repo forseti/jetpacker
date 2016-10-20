@@ -52,8 +52,8 @@
     with_items:
       - sdk install gradle {{ gradle_version }}
       - sdk default gradle {{ gradle_version }}
-      - mkdir -p {{ sdk_home }}/gradle
-      - cp -R {{ sdkman_candidates_home }}/gradle/{{ gradle_version }} {{ sdk_home }}/gradle/{{ gradle_version }}
+      - mkdir -p {{ sdk_root }}/gradle
+      - cp -R {{ sdkman_candidates_home }}/gradle/{{ gradle_version }} {{ sdk_root }}/gradle/{{ gradle_version }}
     when:
       - not gradle.stat.exists
       
@@ -89,7 +89,7 @@
       - rvm install {{ ruby_version }}
       - rvm --default use {{ ruby_version }}
       - gem install bundler
-      - cd {{ workspace_home }} && bundle install
+      - cd {{ workspace_root }} && bundle install
     when: 
       - not rvm.stat.exists
 

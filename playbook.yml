@@ -1,0 +1,22 @@
+---
+- name: playbook
+  hosts: all
+
+  vars:
+     system_time_zone: "{{ lookup('file', '/etc/timezone') }}"
+
+  tasks:
+    - name: set time zone
+      copy: content={{ time_zone }} dest=/etc/timezone mode=0644 backup=yes
+      notify: update time zone
+      when: system_time_zone != time_zone
+
+    - name: create symbolic link to {{ workspace_root }}
+      file: src={{ workspace_root }} dest={{ workspace_home }} owner=vagrant group=vagrant state=link
+
+  handlers:
+    - name: update time zone
+      command: dpkg-reconfigure --frontend noninteractive tzdata
+
+  roles:
+    - development
