@@ -9,5 +9,5 @@ import org.springframework.boot.context.properties.ConfigurationProperties
 @ConfigurationProperties(prefix = "jetpacker")
 @ToString(includeNames = true)
 class Jetpacker {
-    List<Box> boxes
+    Map<String, Box> boxes
 }

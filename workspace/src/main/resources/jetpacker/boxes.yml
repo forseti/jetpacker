@@ -1,0 +1,10 @@
+jetpacker:
+  boxes:
+    ubuntu:
+      description: Ubuntu Linux
+      images:
+        - ubuntu/precise32
+        - ubuntu/precise64
+        - ubuntu/trusty32
+        - ubuntu/trusty64
+      defaultImage: ubuntu/trusty64

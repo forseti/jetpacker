@@ -1,10 +1,3 @@
-jetpacker:
-  boxes:
-    - name: ubuntu
-      description: Ubuntu Linux OS
-      defaultImage: trusty64
-      images:
-        - precise32
-        - precise64
-        - trusty32
-        - trusty64
+banner:
+  charset: UTF-8
+  location: classpath:banner.txt

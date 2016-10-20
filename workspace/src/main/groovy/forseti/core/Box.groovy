@@ -7,7 +7,6 @@ import groovy.transform.ToString
  */
 @ToString(includeNames = true)
 class Box {
-    String name
     String description
     String defaultImage
     List<String> images
