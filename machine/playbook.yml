@@ -1,0 +1,19 @@
+---
+- name: playbook
+  hosts: all
+
+  vars:
+     system_timezone: "{{ lookup('file', '/etc/timezone') }}"
+
+  tasks:
+    - name: set timezone
+      copy: content='{{ timezone }}' dest=/etc/timezone mode=0644 backup=yes
+      notify: update timezone
+      when: system_timezone != timezone
+
+  handlers:
+    - name: update timezone
+      command: dpkg-reconfigure --frontend noninteractive tzdata
+
+  roles:
+    - development
