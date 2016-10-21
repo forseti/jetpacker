@@ -8,7 +8,7 @@
 # move to src/main/webpack
 cd src/main/webpack
 
-# install dependencies (if you are using Vagrant on windows, use 'npm install --no-bin-links' until no errors spotted)
+# install dependencies (if you are using Vagrant on windows, use 'npm install --no-bin-links' until no more errors appear)
 npm install
 
 # serve with hot reload at localhost:8080
