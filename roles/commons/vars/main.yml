@@ -1,0 +1,2 @@
+---
+system_time_zone: "{{ lookup('file', '/etc/timezone') }}"
