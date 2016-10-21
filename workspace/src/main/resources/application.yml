@@ -1,3 +1,22 @@
-banner:
-  charset: UTF-8
-  location: classpath:banner.txt
+jetpacker:
+  boxes:
+    ubuntu:
+      description: Ubuntu is an open source software platform that runs from the cloud, to the smartphone, to all your things
+      images:
+        - ubuntu/trusty32
+        - ubuntu/trusty64
+      defaultImage: ubuntu/trusty64
+
+  databases:
+    mysql: MySQL is the most popular Open Source SQL database management system
+    mariadb: MariaDB is an enhanced, drop-in replacement for MySQL
+    postgres: PostgreSQL is a powerful, open source object-relational database system
+    mongo: MongoDB is an open-source, document database designed for ease of development and scaling
+    redis: Redis is an open source (BSD licensed), in-memory data structure store, used as database, cache and message broker
+
+  messageQueues:
+    rabbitmq: RabbitMQ is a lightweight, reliable, scalable and portable message broker.
+
+  searchEngines:
+    elasticsearch: Elasticsearch is a distributed, open source search and analytics engine, designed for horizontal scalability, reliability, and easy management
+    solr: Solr is the popular, blazing-fast, open source enterprise search platform built on Apache Lucene

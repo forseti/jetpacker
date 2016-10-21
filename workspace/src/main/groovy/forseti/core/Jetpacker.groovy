@@ -10,4 +10,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties
 @ToString(includeNames = true)
 class Jetpacker {
     Map<String, Box> boxes
+    Map<String, String> databases
+    Map<String, String> messageQueues
+    Map<String, String> searchEngines
 }
