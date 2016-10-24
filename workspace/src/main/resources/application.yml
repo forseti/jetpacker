@@ -1,4 +1,11 @@
 jetpacker:
+  repositories:
+    github:
+      nvm: https://api.github.com/repos/creationix/nvm/tags
+      ruby: https://api.github.com/repos/ruby/ruby/tags
+      node: https://api.github.com/repos/nodejs/node/tags
+
+
   boxes:
     ubuntu:
       description: Ubuntu is an open source software platform that runs from the cloud, to the smartphone, to all your things

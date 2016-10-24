@@ -1,68 +1,26 @@
 buildscript {
-	ext {
-		springBootVersion = '1.4.1.RELEASE'
-	}
-	repositories {
-        jcenter()
-		mavenCentral()
-        maven { url 'http://repo.spring.io/plugins-release' }
-	}
-	dependencies {
-		classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
-        classpath 'org.springframework.build.gradle:propdeps-plugin:0.0.7'
-	}
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    classpath "io.ratpack:ratpack-gradle:1.4.3"
+    classpath "com.github.jengelman.gradle.plugins:shadow:1.2.3"
+  }
 }
 
-apply plugin: 'groovy'
-apply plugin: 'spring-boot'
-
-apply plugin: 'idea'
-apply plugin: 'eclipse'
-
-configure(allprojects) {
-    apply plugin: 'propdeps'
-    apply plugin: 'propdeps-maven'
-    apply plugin: 'propdeps-idea'
-    apply plugin: 'propdeps-eclipse'
-}
-
-idea {
-    module {
-        inheritOutputDirs = false
-        outputDir = file("$buildDir/classes/main/")
-    }
-}
-
-jar {
-	baseName = 'jetpacker'
-	version = '0.0.1-SNAPSHOT'
-}
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+apply plugin: "io.ratpack.ratpack-groovy"
+apply plugin: "com.github.johnrengelman.shadow"
+apply plugin: "idea"
+apply plugin: "eclipse"
 
 repositories {
-    jcenter()
-    mavenCentral()
-    maven { url 'https://repo.spring.io/libs-release' }
-    maven { url 'https://repo.spring.io/libs-milestone' }
+  jcenter()
 }
 
 dependencies {
-    compile('org.codehaus.groovy:groovy')
+  // Default SLF4J binding.  Note that this is a blocking implementation.
+  // See here for a non blocking appender http://logging.apache.org/log4j/2.x/manual/async.html
+  runtime 'org.slf4j:slf4j-simple:1.7.21'
 
-	compile('org.springframework.boot:spring-boot-starter-aop')
-	compile('org.springframework.boot:spring-boot-starter-cache')
-	compile('org.springframework.boot:spring-boot-starter-data-redis')
-	compile('org.springframework.boot:spring-boot-devtools')
-	compile('org.springframework.boot:spring-boot-starter-security')
-	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
-	compile('org.springframework.boot:spring-boot-starter-validation')
-	compile('org.springframework.boot:spring-boot-starter-web')
-
-	testCompile('org.springframework.boot:spring-boot-starter-test')
-	testCompile('org.springframework.restdocs:spring-restdocs-mockmvc')
-
-    optional "org.springframework.boot:spring-boot-configuration-processor"
+  testCompile "org.spockframework:spock-core:1.0-groovy-2.4"
 }
-
-compileJava.dependsOn(processResources)
