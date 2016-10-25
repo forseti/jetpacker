@@ -12,10 +12,10 @@ import javax.inject.Singleton
 @Slf4j
 @Singleton
 class GeneratorService {
-    private final JetpackerConfiguration jetpacker
+    private final JetpackerConfiguration jetpackerConfiguration
 
     @Inject
-    GeneratorService(JetpackerConfiguration jetpacker) {
-        this.jetpacker = jetpacker
+    GeneratorService(JetpackerConfiguration jetpackerConfiguration) {
+        this.jetpackerConfiguration = jetpackerConfiguration
     }
 }
