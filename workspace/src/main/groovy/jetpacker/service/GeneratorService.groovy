@@ -1,7 +1,7 @@
-package jetpacker.job
+package jetpacker.service
 
 import groovy.util.logging.Slf4j
-import jetpacker.configuration.Jetpacker
+import jetpacker.configuration.JetpackerConfiguration
 
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -11,11 +11,11 @@ import javax.inject.Singleton
  */
 @Slf4j
 @Singleton
-class JobService {
-    private final Jetpacker jetpacker
+class GeneratorService {
+    private final JetpackerConfiguration jetpacker
 
     @Inject
-    JobService(Jetpacker jetpacker) {
+    GeneratorService(JetpackerConfiguration jetpacker) {
         this.jetpacker = jetpacker
     }
 }

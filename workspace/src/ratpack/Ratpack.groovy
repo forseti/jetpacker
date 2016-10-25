@@ -1,11 +1,11 @@
-import jetpacker.configuration.Application
-import jetpacker.configuration.Jetpacker
-import jetpacker.generator.GeneratorModule
-import jetpacker.generator.GeneratorService
-import jetpacker.job.JobModule
-import jetpacker.job.JobService
+import jetpacker.JetpackerModule
+import jetpacker.configuration.JetpackerConfiguration
 import ratpack.groovy.template.MarkupTemplateModule
+import ratpack.rx.RxRatpack
+import ratpack.server.BaseDir
 import ratpack.server.ServerConfigBuilder
+import ratpack.service.Service
+import ratpack.service.StartEvent
 
 import static ratpack.groovy.Groovy.groovyMarkupTemplate
 import static ratpack.groovy.Groovy.ratpack
@@ -13,15 +13,22 @@ import static ratpack.groovy.Groovy.ratpack
 ratpack {
     serverConfig { ServerConfigBuilder builder ->
         builder
-                .yaml("application.yml")
-                .require("/jetpacker", Jetpacker.class)
+                .yaml("jetpacker.yml")
+                .require("/jetpacker", JetpackerConfiguration.class)
+                .baseDir(BaseDir.find())
         build()
     }
 
     bindings {
-        module JobModule
-        module GeneratorModule
+        module JetpackerModule
         module MarkupTemplateModule
+
+        bindInstance Service, new Service() {
+            @Override
+            void onStart(StartEvent event) throws Exception {
+                RxRatpack.initialize()
+            }
+        }
     }
 
     handlers {

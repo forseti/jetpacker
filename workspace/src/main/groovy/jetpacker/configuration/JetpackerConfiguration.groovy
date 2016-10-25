@@ -6,7 +6,7 @@ import groovy.transform.ToString
  * Created by donny.wijaya on 24/10/2016.
  */
 @ToString(includeNames = true)
-class Jetpacker {
+class JetpackerConfiguration {
     Set<Integer> openjdk
 
     Application nvm
