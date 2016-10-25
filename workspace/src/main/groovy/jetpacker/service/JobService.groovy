@@ -19,7 +19,6 @@ class JobService implements Service {
     @Inject
     JobService(CacheService cacheService) {
         this.cacheService = cacheService
-        println "abc"
     }
 
     @Override
