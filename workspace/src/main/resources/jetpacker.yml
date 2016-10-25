@@ -1,63 +1,97 @@
 jetpacker:
   openjdk: [ 7, 8 ]
 
-  nvm:
-    name: nvm
-    namespace: creationix
-    endpoint: GitHub
-    description: Node Version Manager - Simple bash script to manage multiple active node.js versions.
+  sdks:
+    - name: node
+      namespace: nodejs
+      endpoint: GitHub
+      tab:
+        index: 1
+        label: Node.js
+      dependency:
+        name: nvm
+        namespace: creationix
+        endpoint: GitHub
+      description: Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. Node.js' package ecosystem, npm, is the largest ecosystem of open source libraries in the world.
 
-  node:
-    name: node
-    namespace: nodejs
-    endpoint: GitHub
-    description: Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. Node.js' package ecosystem, npm, is the largest ecosystem of open source libraries in the world.
-
-  guard:
-    name: ruby
-    namespace: ruby
-    endpoint: GitHub
-    description: Guard is a command line tool to easily handle events on file system modifications.
+    - name: guard
+      namespace: guard
+      endpoint: None
+      tab:
+        index: 2
+        label: Node.js
+      dependency:
+        name: ruby
+        namespace: ruby
+        endpoint: GitHub
+      description: Guard is a command line tool to easily handle events on file system modifications.
 
   boxes:
     - name: ubuntu
-      description: Ubuntu is an open source software platform that runs from the cloud, to the smartphone, to all your things.
       images:
         - ubuntu/trusty32
         - ubuntu/trusty64
       defaultImage: ubuntu/trusty64
+      tab:
+        index: 0
+        label: Ubuntu
+      description: Ubuntu is an open source software platform that runs from the cloud, to the smartphone, to all your things.
 
   databases:
     - name: mysql
-      description: MySQL is the most popular Open Source SQL database management system.
       endpoint: DockerHub
+      tab:
+        index: 0
+        label: MySQL
+      description: MySQL is the most popular Open Source SQL database management system.
 
     - name: mariadb
-      description: MariaDB is an enhanced, drop-in replacement for MySQL.
       endpoint: DockerHub
+      tab:
+        index: 1
+        label: MariaDB
+      description: MariaDB is an enhanced, drop-in replacement for MySQL.
 
     - name: postgres
       endpoint: DockerHub
+      tab:
+        index: 2
+        label: PostgreSQL
       description: PostgreSQL is a powerful, open source object-relational database system.
 
     - name: mongo
       endpoint: DockerHub
+      tab:
+        index: 3
+        label: MongoDB
       description: MongoDB is an open-source, document database designed for ease of development and scaling.
 
     - name: redis
       endpoint: DockerHub
+      tab:
+        index: 4
+        label: Redis
       description: Redis is an open source (BSD licensed), in-memory data structure store, used as database, cache and message broker.
 
   messageQueues:
     - name: rabbitmq
       endpoint: DockerHub
+      tab:
+        index: 0
+        label: RabbitMQ
       description: RabbitMQ is a lightweight, reliable, scalable and portable message broker.
 
   searchEngines:
     - name: elasticsearch
       endpoint: DockerHub
+      tab:
+        index: 0
+        label: Elasticsearch
       description: Elasticsearch is a distributed, open source search and analytics engine, designed for horizontal scalability, reliability, and easy management.
 
     - name: solr
       endpoint: DockerHub
+      tab:
+        index: 1
+        label: Solr
       description: Solr is the popular, blazing-fast, open source enterprise search platform built on Apache Lucene.
