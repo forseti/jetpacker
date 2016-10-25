@@ -1,5 +1,6 @@
 package jetpacker
 
+import groovy.transform.CompileStatic
 import groovy.util.logging.Slf4j
 import jetpacker.configuration.JetpackerConfiguration
 import jetpacker.service.CacheService
@@ -11,6 +12,7 @@ import ratpack.guice.ConfigurableModule
  * Created by donny.wijaya on 24/10/2016.
  */
 @Slf4j
+@CompileStatic
 class JetpackerModule extends ConfigurableModule<JetpackerConfiguration> {
     @Override
     protected void configure() {
