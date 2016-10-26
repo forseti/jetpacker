@@ -10,5 +10,5 @@ import groovy.transform.ToString
 @CompileStatic
 class Application extends Metadata {
     String namespace
-    Endpoint endpoint
+    Endpoint endpoint = Endpoint.None
 }
