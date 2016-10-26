@@ -9,7 +9,8 @@ import groovy.transform.ToString
 @ToString(includeNames = true)
 @CompileStatic
 class Metadata {
-    String name
+    String tag
     String description
+
     Tab tab
 }
