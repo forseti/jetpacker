@@ -21,4 +21,7 @@ class CacheService {
         this.httpClient = httpClient
         this.jetpackerConfiguration = jetpackerConfiguration
     }
+
+    void update() {
+    }
 }

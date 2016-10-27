@@ -14,6 +14,9 @@ import javax.inject.Singleton
 @Slf4j
 @Singleton
 class JobService implements Service {
+    private Timer timer
+    private TimerTask timerTask
+
     private final CacheService cacheService
 
     @Inject
@@ -23,10 +26,16 @@ class JobService implements Service {
 
     @Override
     void onStart(StartEvent event) throws Exception {
+        timer = new Timer()
 
+        timerTask = timer.schedule({
+            cacheService.update()
+        }, 10000, 10000)
     }
 
     @Override
     void onStop(StopEvent event) throws Exception {
+        timerTask.cancel()
+        timer.cancel()
     }
 }
