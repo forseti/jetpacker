@@ -11,7 +11,6 @@ Vagrant.configure("2") do |config|
   # forwarded ports
   config.vm.network 'forwarded_port', guest: 8080, host: 8080, auto_correct: true
 
-  # synced folders
   config.vm.provision "docker"
 
   config.vm.provision 'ansible', run: "always", type: 'ansible_local' do |ansible|
