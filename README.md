@@ -1,6 +1,6 @@
 # jetpacker
 
-> Jetpacker - Java Environment Toolkits Packer
+> Jetpacker - Java Environment Toolkits Packer. Moved to http://github.com/jetpacker
 
 ## Build Setup
 
